@@ -1,10 +1,10 @@
 public class StockItem {
 
-    private String componentType;
-    private String stockCode;
-    private int itemsInStock;
-    private double price;
-    private String extraInfo;
+    private final String componentType;
+    private final String stockCode;
+    private final int itemsInStock;
+    private final double price;
+    private final String extraInfo;
 
     public StockItem(String componentType, String stockCode, int itemsInStock, double price){
         this.componentType = componentType;
@@ -41,9 +41,6 @@ public class StockItem {
         return componentType;
     }
 
-    public String getStockCode(){
-        return stockCode;
-    }
 
     public int getItemsInStock(){
         return itemsInStock;

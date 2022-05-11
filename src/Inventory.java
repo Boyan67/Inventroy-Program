@@ -1,7 +1,5 @@
-import javax.annotation.processing.SupportedSourceVersion;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -46,20 +44,10 @@ public class Inventory extends StockItem {
         {
             if (order.equalsIgnoreCase("ascending"))
             {
-                Collections.sort(itemList, new Comparator<StockItem>() {
-                    @Override
-                    public int compare(StockItem first, StockItem second) {
-                        return Double.compare(first.getPrice(), second.getPrice());
-                    }
-                });
+                itemList.sort(Comparator.comparingDouble(StockItem::getPrice));
             }else if (order.equalsIgnoreCase("descending"))
             {
-                Collections.sort(itemList, new Comparator<StockItem>() {
-                    @Override
-                    public int compare(StockItem first, StockItem second) {
-                        return Double.compare(second.getPrice(), first.getPrice());
-                    }
-                });
+                itemList.sort((first, second) -> Double.compare(second.getPrice(), first.getPrice()));
             }else
                 {
                 System.out.println("Please pass argument: \"ascending\" or \"descending\".");
